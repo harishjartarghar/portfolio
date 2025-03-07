@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-green: #4ade80;
+  --terminal-black: #0f0f0f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--terminal-black);
+  color: var(--terminal-green);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 222, 128, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 222, 128, 0.5);
+}
+
+/* Terminal blinking cursor animation */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Terminal window styling */
+.terminal-window {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Command line styling */
+.command-line {
+  position: relative;
+  padding: 8px 0;
+}
+
+/* ASCII art responsive adjustments */
+.ascii-art {
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .ascii-art {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 640px) {
+  .terminal-window {
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .terminal-content {
+    padding: 0;
+  }
+
+  .command-line {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+
+  /* Improve text readability on small screens */
+  p,
+  span,
+  a {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Ensure form elements are easy to tap */
+  input,
+  textarea,
+  button {
+    min-height: 44px;
+  }
+}
+
+/* Ensure consistent date display */
+.date-display {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  white-space: nowrap;
+  margin-top: 0.5rem;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .date-display {
+    width: auto;
+    margin-top: 0;
+    margin-left: 1rem;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+/* Add these styles at the end of the file to improve mobile responsiveness */
+
+/* Extra small screen optimizations */
+@media (max-width: 350px) {
+  /* Reduce padding and margins */
+  .terminal-window {
+    padding: 0.5rem !important;
+  }
+
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Smaller font sizes */
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  p,
+  span,
+  a,
+  div {
+    font-size: 0.875rem !important;
+  }
+
+  /* Ensure content doesn't overflow */
+  .terminal-content {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Adjust grid layouts */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure ASCII art doesn't overflow */
+  .ascii-art {
+    font-size: 0.5rem !important;
+    line-height: 0.7rem !important;
+    transform: scale(0.8);
+    transform-origin: left top;
+  }
+
+  /* Adjust date displays */
+  .date-display,
+  .flex.items-center.text-green-400.text-sm.bg-black\/40.px-3.py-1.rounded.border.border-green-500\/30 {
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* Make sure icons are properly sized */
+  svg {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+  }
+}
+
+/* Ensure no horizontal overflow on all screen sizes */
+body,
+main,
+section,
+div {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Fix terminal window width */
+.terminal-window {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure all content is properly contained */
+.output {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
